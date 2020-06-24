@@ -9,7 +9,7 @@ build:
   build_file: none
   output_files: output/*.zip
   image_template: ansible-2.9
-  image_name: alpha/ansible-2.9
+  image_name: alpha/ntnx_db_ansible-2.9
 
 deploy:
   context: alpha/DEV
