@@ -21,7 +21,7 @@ monitor:
 properties:
 # AppZ Ansible Playbook
   APPZ_PLAYLIST: nutanix_vm,centos_base,postgres
-
+  
 # Nutanix AHV Environment properties
   NUTANIX_PRISM_ADDRESS: 10.42.111.37
   NUTANIX_PRISM_PORT: 9440
@@ -66,4 +66,4 @@ properties:
   
 # common properties  
   APPZ_TEARDOWN_TOKEN: 20200624-0100
-  revision : 01
+  revision : 02
