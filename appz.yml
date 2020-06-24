@@ -1,0 +1,70 @@
+app:
+  name: NTNX Database VM
+  code: NTNXDBVM
+  notify: appzdev@cloudbourne.co
+
+build:
+  version: 2.9
+  env: DEV
+  build_file: none
+  output_files: output/*.zip
+  image_template: ansible-2.9
+  image_name: alpha/ansible-2.9
+
+deploy:
+  context: alpha/DEV
+  replicas: 1
+
+monitor:
+  notify: appzops@cloudbourne.co      
+
+properties:
+# AppZ Ansible Playbook
+  PLAY: nutanix_vm,centos_base,postgres
+
+# Nutanix AHV Environment properties
+  NUTANIX_VM_ENDPOINT: https://10.42.111.37:9440
+  NUTANIX_VM_ADDRESS: 10.42.111.37
+  NUTANIX_VM_PORT: 9440
+  NUTANIX_VM_CLUSTER_NAME: PHX-POC111
+  NUTANIX_VM_SUBNET_NAME: Rx-Automation-Network
+  NUTANIX_VM_PROVIDER_USER_NAME: admin
+  NUTANIX_VM_PROVIDER_USER_PASSWORD:
+    vault: NUTANIX_VM_PROVIDER_USER_PASSWORD
+    
+# Ntuanix VM Properties
+  NUTANIX_VM_ROOT_DISK_SIZE: 102400
+  NUTANIX_VM_DATA_DISK_SIZE: 102400
+  NUTANIX_VM_NAME: postgres_ntnx
+  NUTANIX_VM_RAM: 8192
+  NUTANIX_VM_CPU_PER_SOCKET: 4
+  NUTANIX_VM_CPU_SOCKET: 1
+  NUTANIX_VM_IMAGE: cent7osDisk
+  NUTANIX_VM_DOMIAN: localhost
+  NUTANIX_VM_ANSIBLE_USER_NAME: ansible
+  NUTANIX_VM_ANSIBLE_PUB_KEY:
+    vault: NUTANIX_VM_ANSIBLE_PUB_KEY
+  NUTANIX_VM_ANSIBLE_KEY:
+    vault: NUTANIX_VM_ANSIBLE_KEY
+  NUTANIX_VM_ROOT_PASSWORD: 
+    vault: NUTANIX_VM_ROOT_PASSWORD
+  NUTANIX_VM_HOSTNAME: localhost
+
+# Centos Base properties  
+  CENTOS_BASE_HOSTNAME: tomcat
+  CENTOS_BASE_FLUENT_AGGREGATOR_HOST: 10.42.111.52
+  CENTOS_BASE_FLUENT_AGGREGATOR_PORT: 31212
+
+# Postgres DB properties  
+  POSTGRES_HOSTNAME: postgres
+  NUTANIX_VM_INVENTORY_HOST: postgres
+  POSTGRES_FLUENT_AGGREGATOR_HOST: 10.42.111.52
+  POSTGRES_FLUENT_AGGREGATOR_PORT: 31212
+  POSTGRES_DBPASS: 
+    vault: POSTGRES_DBPASS
+  POSTGRES_DBUSER: postgres
+  POSTGRES_PORT: 5432
+  
+# common properties  
+  APPZ_TEARDOWN_TOKEN: 20200624-0100
+  revision : 12
