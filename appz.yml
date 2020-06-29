@@ -65,5 +65,5 @@ properties:
   POSTGRES_PORT: 5432
   
 # common properties  
-  APPZ_TEARDOWN_TOKEN: 20200625-1500
+  APPZ_TEARDOWN_TOKEN: 20200629-1715
   revision : 03
