@@ -1,7 +1,7 @@
 app:
-  name: NTNX Database VM
-  code: NTNXDBVM
-  notify: appzdev@cloudbourne.co
+  name: Postgress NTNX VM
+  code: POSTGRESNTNXDBVM
+  notify: appz@ecloudcontrol.com
 
 build:
   version: 2.9
@@ -9,24 +9,20 @@ build:
   build_file: none
   output_files: output/*.zip
   image_template: ansible-2.9
-  image_name: alpha/ntnx_db_ansible-2.9
 
 deploy:
   context: alpha/DEV
   replicas: 1
-
-monitor:
-  notify: appzops@cloudbourne.co      
 
 properties:
 # AppZ Ansible Playbook
   APPZ_PLAYLIST: nutanix_vm,centos_base,postgres
   
 # Nutanix AHV Environment properties
-  NUTANIX_PRISM_ADDRESS: 10.42.111.37
+  NUTANIX_PRISM_ADDRESS: c0a83da5.lowtouch.cloud
   NUTANIX_PRISM_PORT: 9440
-  NUTANIX_PRISM_CLUSTER_NAME: PHX-POC111
-  NUTANIX_VM_SUBNET_NAME: Rx-Automation-Network
+  NUTANIX_PRISM_CLUSTER_NAME: CLOUDCONTROL
+  NUTANIX_VM_SUBNET_NAME: DefaultNet
   NUTANIX_PRISM_USER_NAME: admin
   NUTANIX_PRISM_USER_PASSWORD:
     vault: NUTANIX_VM_PROVIDER_USER_PASSWORD
@@ -39,7 +35,7 @@ properties:
   NUTANIX_VM_RAM: 8192
   NUTANIX_VM_CPU_PER_SOCKET: 4
   NUTANIX_VM_CPU_SOCKET: 1
-  NUTANIX_VM_IMAGE: cent7osDisk
+  NUTANIX_VM_IMAGE: centos7.vmdk
   NUTANIX_VM_DOMIAN: localhost
   NUTANIX_VM_ANSIBLE_USER_NAME: ansible
   NUTANIX_VM_ANSIBLE_PUB_KEY:
@@ -52,12 +48,12 @@ properties:
 
 # Centos Base properties  
   CENTOS_BASE_HOSTNAME: tomcat
-  CENTOS_BASE_FLUENT_AGGREGATOR_HOST: 10.42.111.52
+  CENTOS_BASE_FLUENT_AGGREGATOR_HOST: 192.168.61.193
   CENTOS_BASE_FLUENT_AGGREGATOR_PORT: 31212
 
 # Postgres DB properties  
   POSTGRES_HOSTNAME: postgres
-  POSTGRES_FLUENT_AGGREGATOR_HOST: 10.42.111.52
+  POSTGRES_FLUENT_AGGREGATOR_HOST: 192.168.61.193
   POSTGRES_FLUENT_AGGREGATOR_PORT: 31212
   POSTGRES_DBPASS: 
     vault: POSTGRES_DBPASS
