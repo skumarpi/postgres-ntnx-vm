@@ -1,1 +1,1 @@
-# NTNX-DB-VM
+# postgres-ntnx-vm
