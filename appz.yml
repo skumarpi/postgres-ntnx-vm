@@ -1,7 +1,7 @@
 app:
   name: Postgress NTNX VM
   code: POSTGRESNTNXDBVM
-  notify: appz@ecloudcontrol.com
+  notify: skumar@ecloudcontrol.com
 
 build:
   version: 2.9
@@ -11,7 +11,7 @@ build:
   image_template: ansible-2.9
 
 deploy:
-  context: alpha/DEV
+  context: skumarpi/DEV
   replicas: 1
 
 properties:
