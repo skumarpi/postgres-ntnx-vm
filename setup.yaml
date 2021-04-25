@@ -1,21 +1,21 @@
 users:
-  - name: springboot_web
+  - name: springbootweb
     password: $POSTGRES_SPRINGBOOTWEB_PASSWORD
     role: superuser
 databases:
-  - name: springboot_web
-    owner: springboot_web
+  - name: springbootweb
+    owner: springbootweb
     tablespace:
-      - name: tb1
-        location: /appz/data/tb1
+      - name: tb2
+        location: /appz/data/tb2
     schemas:
-      - name: schema1
-        authorised_user: springboot_web
+      - name: schema2
+        authorised_user: springbootweb
         search_path: true
 restore:
-  - database: springboot_web
-    source:
+  - database: springbootweb
+    source: springbootweb
        url: 'https://www.ecloudcontrol.com/wp-content/uploads/2021/03/accountsdb.zip'
-    user: postgres
-    password: $POSTGRESQL_PASSWORD # password of the 'user' above.
-    token: 20210423-0345 # The restore token to be validated before restoring
+    user: 
+    password: $POSTGRES_SPRINGBOOTWEB_PASSWORD # password of the 'user' above.
+    token: 20210425-0250 # The restore token to be validated before restoring
