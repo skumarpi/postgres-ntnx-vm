@@ -6,10 +6,10 @@ databases:
   - name: springbootweb
     owner: springbootweb
     tablespace:
-      - name: tb2
+      - name: tb1
         location: /appz/data/tb2
     schemas:
-      - name: schema2
+      - name: schema1
         authorised_user: springbootweb
         search_path: true
 restore:
