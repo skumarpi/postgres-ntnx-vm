@@ -58,7 +58,7 @@ properties:
   
 # common properties  
   APPZ_TEARDOWN_TOKEN: 20210421-0350
-  revision : 06
+  revision : 07
   
 # Ignore
   NUTANIX_VM_DOMIAN: localhost
